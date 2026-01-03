@@ -13,6 +13,7 @@ The project focuses on **methodology, validation, and documentation** rather tha
 - Build a GitHub portfolio aligned with junior VAPT / SOC analyst roles
 
 ## Folder Structure
+```
 vapt-homelab-segmented-network/
 │
 ├── README.md
@@ -49,7 +50,7 @@ vapt-homelab-segmented-network/
     ├── architecture/
     ├── scans/
     ├── exploitation/
-
+```
 
 ## Key Highlights
 - Multi-zone network segmentation
@@ -62,5 +63,3 @@ vapt-homelab-segmented-network/
 - Vulnerability assessment
 - Controlled exploitation
 - Risk analysis & remediation
-
-
