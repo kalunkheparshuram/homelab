@@ -9,4 +9,4 @@ The lab is divided into three security zones:
 3. Contaminated Zone (Vulnerable Systems)
 
 Screenshot:
-![Network Design](screenshot/network-design.png)
+![Network Design](/screenshot/architecture/network-design.png)

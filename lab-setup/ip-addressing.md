@@ -30,13 +30,13 @@ during vulnerability assessment.
 | VM | IP Address | Notes |
 |----|-----------|------|
 | Kali Linux | 192.168.56.10 | Attacker pivot |
-| Metasploitable2 | 192.168.56.101 | Primary vulnerable target |
-| OWASP BWA | 192.168.56.102 | Web testing |
-| DVWA | 192.168.56.103 | Web testing |
-| Vulnix | 192.168.56.104 | Privilege escalation |
-| Windows 7 | 192.168.56.105 | Legacy Windows testing |
-| Debian Server | 192.168.56.201 | Internal server |
-| Windows Server | 192.168.56.202 | Internal server |
+| Metasploitable2 | 192.168.56.11 | Primary vulnerable target |
+| OWASP BWA | 192.168.56.12 | Web testing |
+| DVWA | 192.168.56.13 | Web testing |
+| Vulnix | 192.168.56.14 | Privilege escalation |
+| Windows 7 | 192.168.56.15 | Legacy Windows testing |
+| Debian Server | 192.168.56.21 | Internal server |
+| Windows Server | 192.168.56.22 | Internal server |
 
 
 ## Operational Notes

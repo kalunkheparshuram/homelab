@@ -9,7 +9,7 @@ Threat Model:
 - Accessible only after pivoting or misconfiguration
 
 Screenshot:
-![Dyson Swarm](screenshot/dyson-swarm.png)
+![Dyson Swarm](/screenshot/architecture/dyson-swarm.png)
 
 ### Sentinels – Attacker Zone
 Purpose:
@@ -22,7 +22,7 @@ Security Design:
 - Segregated from vulnerable zone to avoid accidental contamination
 
 Screenshot:
-![Dyson Swarm](/screenshot/sentinels.png)
+![Dyson Swarm](/screenshot/architecture/sentinels.png)
 
 ### Contaminated Zone – Vulnerable Zone
 Purpose:
@@ -34,4 +34,4 @@ Risk Level:
 - Used to simulate real-world vulnerable assets
 
 Screenshot:
-![Dyson Swarm](screenshot/contaminated-zone.png)
+![Dyson Swarm](/screenshot/architecture/contaminated-zone.png)
