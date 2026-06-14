@@ -18,9 +18,13 @@ This project documents a personal cybersecurity homelab built using VirtualBox f
 - 192.168.56.0/24
 
 Kali Linux - 192.168.56.10
+
 Windows 10 - 192.168.56.20
+
 Windows Server 2019 - 192.168.56.30
+
 Metasploitable2 - 192.168.56.40
+
 OWASP BWA - 192.168.56.50
 
 ## Skills Demonstrated
