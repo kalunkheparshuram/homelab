@@ -1,0 +1,5 @@
+i have found ftp open port msf 
+and run hydra bruteforce to username and password
+and found msfadmin username and msfadmin password
+then loged in into ftp using those creds.
+gain unauthorized access via ftp.

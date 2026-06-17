@@ -1,0 +1,28 @@
+## Title
+
+FTP Service Accessible Using Weak/Default Credentials
+
+## Description
+
+During testing, an FTP service was identified on the target host. A credential audit revealed that the service was configured with weak/default credentials (**msfadmin:msfadmin**). Successful authentication to the FTP server was achieved using these credentials, allowing access to the service.
+
+## Steps to Reproduce
+
+1. Identify the FTP service running on the target host.
+2. Perform a credential audit against the FTP service.
+3. Use the credentials **msfadmin:msfadmin** to authenticate.
+4. Observe that login is successful and access to the FTP service is granted.
+
+## Impact
+
+An attacker could gain unauthorized access to the FTP service, potentially allowing them to view, download, upload, or modify files depending on the permissions assigned to the account.
+
+## Evidence
+
+Valid FTP Credentials:
+
+* Username: msfadmin
+* Password: msfadmin
+
+Successful FTP login was achieved using the above credentials.
+
