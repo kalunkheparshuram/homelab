@@ -1,0 +1,178 @@
+# SSH Brute Force Testing Using Metasploit Auxiliary Module
+
+## 1. Title
+
+**SSH Brute Force Attack Simulation Using Metasploit Framework Auxiliary Module**
+
+---
+
+## 2. Objective
+
+The objective of this experiment is to perform a controlled SSH brute-force attack against a vulnerable target machine using the Metasploit Framework auxiliary module. The purpose is to understand password security weaknesses and demonstrate how weak SSH credentials can be identified during a penetration test.
+
+---
+
+## 3. Environment Setup
+
+### Attacker Machine
+
+* Operating System: Kali Linux
+* Tool Used: Metasploit Framework (`msfconsole`)
+
+### Target Machine
+
+* Operating System: Linux-based vulnerable machine
+* Service Tested: SSH (Secure Shell)
+* Default SSH Port: 22
+
+### Network Configuration
+
+* Virtual Lab Environment
+* Machines connected through a private virtual network
+
+---
+
+## 4. Tools Used
+
+| Tool                         | Purpose                      |
+| ---------------------------- | ---------------------------- |
+| Kali Linux                   | Penetration testing platform |
+| Metasploit Framework         | Security testing framework   |
+| Auxiliary SSH Scanner Module | SSH credential testing       |
+| Wordlist                     | Password testing database    |
+
+---
+
+## 5. Procedure
+
+### Step 1: Start Metasploit Framework
+
+Command:
+
+```
+msfconsole
+```
+
+Metasploit console was launched successfully.
+
+---
+
+### Step 2: Search SSH Login Modules
+
+Command:
+
+```
+search ssh_login
+```
+
+The SSH login auxiliary module was identified.
+
+---
+
+### Step 3: Select SSH Login Auxiliary Module
+
+Command:
+
+```
+use auxiliary/scanner/ssh/ssh_login
+```
+
+The SSH brute-force testing module was loaded.
+
+---
+
+### Step 4: View Module Options
+
+Command:
+
+```
+show options
+```
+
+The available configuration parameters were displayed.
+
+---
+
+### Step 5: Configure Target Information
+
+Target IP address was configured:
+
+```
+set RHOSTS <Target-IP>
+```
+
+SSH username was configured:
+
+```
+set USERNAME <username>
+```
+
+Password wordlist was configured:
+
+```
+set PASS_FILE <path-to-wordlist>
+```
+
+Example:
+
+```
+set PASS_FILE /usr/share/wordlists/rockyou.txt
+```
+
+---
+
+### Step 6: Execute the Module
+
+Command:
+
+```
+run
+```
+
+The module attempted authentication using the provided username and password list.
+
+---
+
+## 6. Observations
+
+* The SSH service was detected on port 22.
+* The Metasploit auxiliary scanner attempted multiple authentication requests.
+* Weak credentials were identified successfully (if present).
+* Strong passwords prevented unauthorized access attempts.
+
+---
+
+## 7. Result
+
+The SSH brute-force test was completed successfully.
+
+The assessment demonstrated that:
+
+* Weak SSH passwords can be compromised through automated guessing attacks.
+* Strong password policies reduce brute-force risks.
+* SSH security configurations should include additional protections.
+
+---
+
+## 8. Security Recommendations
+
+1. Use strong and complex passwords.
+2. Disable password-based SSH authentication where possible.
+3. Implement SSH key-based authentication.
+4. Enable account lockout policies.
+5. Restrict SSH access using firewall rules.
+6. Use tools such as Fail2Ban to detect repeated login attempts.
+7. Monitor SSH authentication logs regularly.
+
+---
+
+## 9. Conclusion
+
+This experiment demonstrated the process of conducting an SSH brute-force security assessment using the Metasploit Framework auxiliary module. The activity highlights the importance of secure authentication mechanisms and proper SSH hardening practices to protect systems from unauthorized access.
+
+---
+
+## 10. Ethical Disclaimer
+
+This testing was performed only in an authorized laboratory environment. Brute-force techniques should only be used against systems where explicit permission has been granted.
+

