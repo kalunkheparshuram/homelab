@@ -1,0 +1,314 @@
+Below is a **sample penetration testing report** for using Metasploit’s `smtp_enum` module against **Metasploitable 2 (Linux)** SMTP service. You can copy this and adjust based on your real scan output.
+
+
+
+---
+
+
+
+# 📄 Penetration Testing Report
+
+
+
+## SMTP Enumeration – Metasploitable 2
+
+
+
+### 1. Overview
+
+
+
+This report documents the enumeration of SMTP service on a Metasploitable 2 target using the Metasploit Framework (`msfconsole`) module `auxiliary/scanner/smtp/smtp_enum`. The objective was to identify valid system users via SMTP VRFY/EXPN/RCPT commands.
+
+
+
+---
+
+
+
+### 2. Target Information
+
+
+
+* **Target OS:** Metasploitable 2 (Linux)
+
+* **IP Address:** `<TARGET_IP>`
+
+* **Service Tested:** SMTP
+
+* **Port:** 25/tcp
+
+* **Service Version (if detected):** Postfix smtpd / Sendmail (commonly vulnerable configuration)
+
+
+
+---
+
+
+
+### 3. Tool Used
+
+
+
+* **Framework:** Metasploit Framework (`msfconsole`)
+
+* **Module:**
+
+
+
+  ```
+
+  auxiliary/scanner/smtp/smtp_enum
+
+  ```
+
+
+
+---
+
+
+
+### 4. Objective
+
+
+
+* Enumerate valid users on the SMTP server
+
+* Identify whether VRFY/EXPN/RCPT TO commands are enabled
+
+* Assess exposure of user account information
+
+
+
+---
+
+
+
+### 5. Methodology
+
+
+
+#### 5.1 Module Setup
+
+
+
+```bash
+
+msfconsole
+
+use auxiliary/scanner/smtp/smtp_enum
+
+```
+
+
+
+#### 5.2 Configuration
+
+
+
+```bash
+
+set RHOSTS <TARGET_IP>
+
+set THREADS 10
+
+set USER_FILE /usr/share/wordlists/metasploit/unix_users.txt
+
+run
+
+```
+
+
+
+#### 5.3 Enumeration Technique
+
+
+
+The module attempts:
+
+
+
+* `VRFY <username>`
+
+* `EXPN <username>`
+
+* `RCPT TO:<username>`
+
+
+
+to determine valid system accounts.
+
+
+
+---
+
+
+
+### 6. Results
+
+
+
+#### 6.1 Discovered Valid Users
+
+
+
+Example output (replace with your real results):
+
+
+
+```
+
+[+] 25/tcp open  smtp
+
+[+] SMTP enumeration found valid users:
+
+
+
+root
+
+msfadmin
+
+service
+
+user
+
+postgres
+
+ftp
+
+sys
+
+```
+
+
+
+---
+
+
+
+### 7. Analysis
+
+
+
+* SMTP server responded positively to user verification requests.
+
+* VRFY/EXPN commands are enabled or improperly restricted.
+
+* Enumeration allows attackers to:
+
+
+
+  * Identify valid usernames
+
+  * Facilitate brute-force attacks
+
+  * Aid in phishing or credential stuffing
+
+
+
+---
+
+
+
+### 8. Security Impact
+
+
+
+| Risk                     | Description                       |
+
+| ------------------------ | --------------------------------- |
+
+| User enumeration         | Exposes valid system accounts     |
+
+| Attack surface expansion | Enables password attacks          |
+
+| Information leakage      | Reveals internal system structure |
+
+
+
+---
+
+
+
+### 9. Severity Rating
+
+
+
+**Medium**
+
+
+
+(Upgrades to High if password policy is weak or external exposure exists)
+
+
+
+---
+
+
+
+### 10. Recommendations
+
+
+
+* Disable or restrict SMTP commands:
+
+
+
+  * `VRFY`
+
+  * `EXPN`
+
+* Configure Postfix/Sendmail:
+
+
+
+  ```
+
+  disable_vrfy_command = yes
+
+  ```
+
+* Implement:
+
+
+
+  * SMTP authentication (SMTP AUTH)
+
+  * Firewall rules limiting port 25 exposure
+
+* Use banner obfuscation:
+
+
+
+  * Hide service version details
+
+* Monitor for enumeration attempts
+
+
+
+---
+
+
+
+### 11. Conclusion
+
+
+
+The SMTP service on Metasploitable 2 is vulnerable to user enumeration via Metasploit’s `smtp_enum` module. This allows attackers to gather valid usernames, significantly increasing the risk of targeted attacks.
+
+
+
+---
+
+
+
+If you want, I can also generate:
+
+
+
+* 📊 **Professional PDF-style report format**
+
+* 🧪 Full **Metasploitable 2 SMTP exploitation lab walkthrough**
+
+* 🔐 OR a **complete vulnerability assessment report (Nmap + SMTP + FTP + SMB combined)**
+
